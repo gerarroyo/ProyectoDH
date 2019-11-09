@@ -1,8 +1,31 @@
+/*google font */
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+/*general*/
 *{
-margin 0;
-padding 0;
+margin: 0;
+padding: 0;
 box-sizing: border-box;
 color: #000;
 text-decoration: none;
 list-style-type: none;
+}
+h1{
+  font-family: 'Roboto',sans-serif;;
+  font-weight: black;
+}
+h2{
+  font-family: 'roboto', sans-serif;
+  font-weight: bold;
+}
+h3{
+  font-family: 'roboto',sans-serif;
+  font-weight: medium;
+}
+p{
+  font-family: 'roboto',sans-serif;
+  font-weight: light;
+}
+a{
+  font-family: 'roboto',sans-serif;
+  font-weight: regular;
 }

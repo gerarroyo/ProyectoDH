@@ -1,0 +1,12 @@
+header{
+  width: 100%;
+  background-color: yellow;
+  display: block;
+  padding: 3%;
+}
+.contenedor-menus{
+  margin-top: 0%;
+  float:right;
+  margin-right: 10%;
+
+}
