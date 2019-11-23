@@ -1,0 +1,9 @@
+.main-registro
+{
+  padding: 5%;
+}
+.formulario-registro
+{
+  display: flex;
+  justify-content: center;
+}

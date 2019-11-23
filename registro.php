@@ -19,8 +19,35 @@
       </div>
       <div class="main-registro">
         <main>
-          <div class="texto-main-registro">
-            <p>ACA TE VAS A REGISTRAR</p>
+          <div class="container">
+            <h1 class="text-center titulo-principal">Registro</h1>
+            <form class="formulario-registro" method="POST">
+                <div class="form-group col-md-12">
+                  <div class="form-group col-md-12">
+                    <label for="nombre">Nombre</label>
+                    <input id=nombre type="text" class="form-control" placeholder="Escribe tu nombre">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" placeholder="Ahora tu apellido">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="inputPassword4">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="inputAddress">Direccion</label>
+                    <input type="text" class="form-control" id=adress placeholder="Avenida Corrientes 3800, C.A.B.A">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <button type="submit" class="btn btn-primary">Registrate</button>
+                  </div>
+                </div>
+            </form>
           </div>
         </main>
       </div>
@@ -30,5 +57,7 @@
          ?>
       </div>
     </div>
+    <?php require_once 'scripts.php'
+    ?>
   </body>
 </html>
