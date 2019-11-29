@@ -1,4 +1,12 @@
 .login-main
 {
-  min-height: 90vh;
+  min-height: 80vh;
+}
+.titulo-login
+{
+  margin: 5%;
+}
+.formulario-login
+{
+ margin-left: 35%;
 }

@@ -1,5 +1,7 @@
-footer{
-  width: 100%;
-  background-color: red;
-  display: block;
+.texto-footer{
+  text-align: center;
+  color: red;
+}
+.footer{
+  padding-top: 3%;
 }

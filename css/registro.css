@@ -1,5 +1,6 @@
 .main-registro
 {
+  min-height: 95vh;
   padding: 5%;
 }
 .formulario-registro

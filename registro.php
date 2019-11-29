@@ -1,3 +1,9 @@
+<?php
+
+if($_POST){
+  var_dump($_POST);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,25 +31,30 @@
                 <div class="form-group col-md-12">
                   <div class="form-group col-md-12">
                     <label for="nombre">Nombre</label>
-                    <input id=nombre type="text" class="form-control" placeholder="Escribe tu nombre">
+                    <input id="nombre" type="text" class="form-control" name="nombre"  value="<?= $_POST['nombre'] ?? ''?>" placeholder="Escribe tu nombre">
+                    <small> <?= $errores['nombre'] ?? '' ?> </small>
                   </div>
                   <div class="form-group col-md-12">
                     <label for="apellido">Apellido</label>
-                    <input type="text" class="form-control" placeholder="Ahora tu apellido">
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <input type="text" class="form-control" name="apellido" value="<?= $_POST['apellido'] ?? '' ?>" placeholder="Ahora tu apellido">
                   </div>
                   <div class="form-group col-md-12">
                     <label for="inputAddress">Direccion</label>
-                    <input type="text" class="form-control" id=adress placeholder="Avenida Corrientes 3800, C.A.B.A">
+                    <input type="text" class="form-control" id="address" name="direccion" value="<?= $_POST['direccion'] ?? ''?>" placeholder="Avenida Corrientes 3800, C.A.B.A">
                   </div>
                   <div class="form-group col-md-12">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" name="email" value="<?= $_POST['email'] ?? '' ?>" id="inputEmail4" placeholder="Email">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="inputPassword4">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" name="password" value="<?=$_POST['password'] ?? ''?>"placeholder="Password">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="inputPassword5">Confirmar Password</label>
+                    <input type="password" class="form-control" id="inputPassword5" name="confirmarPassword" value="<?=$_POST['confirmarPassword']?? ''?>" placeholder="Confirmar Password">
+                  </div>
+                  <div class="form-group col-md-12 d-flex justify-content-center ">
                     <button type="submit" class="btn btn-primary">Registrate</button>
                   </div>
                 </div>
