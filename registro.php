@@ -1,7 +1,14 @@
 <?php
+if ($_POST){
+//VARIABLES DE LOS DATOS QUE LLENA EL USUARIO EN EL FORMULARIO (ESTAN LLAMADOS DENTRO DE LOS VALUES)//
+  $nombre = $_POST['nombre'];
+  $apellido = $_POST['apellido'];
+  $direccion = $_POST['direccion'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $confirmarPassword = $_POST['confirmarPassword'];
+  $errores = [];
 
-if($_POST){
-  var_dump($_POST);
 }
 ?>
 <!DOCTYPE html>
@@ -28,31 +35,30 @@ if($_POST){
           <div class="container">
             <h1 class="text-center titulo-principal">Registro</h1>
             <form class="formulario-registro" method="POST">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-6 formu-grupo">
                   <div class="form-group col-md-12">
-                    <label for="nombre">Nombre</label>
-                    <input id="nombre" type="text" class="form-control" name="nombre"  value="<?= $_POST['nombre'] ?? ''?>" placeholder="Escribe tu nombre">
-                    <small> <?= $errores['nombre'] ?? '' ?> </small>
+                    <label class="d-flex justify-content-center" for="nombre">Nombre</label>
+                    <input id="nombre" type="text" class="form-control" name="nombre"  value="<?=$nombre ?? ''?>" placeholder="Escribe tu nombre">
+                  </div>
+                  <div class="container-fluid form-group col-md-12">
+                    <label class="d-flex justify-content-center" for="apellido">Apellido</label>
+                    <input id="apellido" type="text" class="form-control" name="apellido" value="<?=$apellido ?? ''?>" placeholder="Ahora tu apellido">
                   </div>
                   <div class="form-group col-md-12">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" class="form-control" name="apellido" value="<?= $_POST['apellido'] ?? '' ?>" placeholder="Ahora tu apellido">
+                    <label class="d-flex justify-content-center" for="direccion">Direccion</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion" value="<?= $direccion ?? ''?>" placeholder="Avenida Corrientes 3800, C.A.B.A">
                   </div>
                   <div class="form-group col-md-12">
-                    <label for="inputAddress">Direccion</label>
-                    <input type="text" class="form-control" id="address" name="direccion" value="<?= $_POST['direccion'] ?? ''?>" placeholder="Avenida Corrientes 3800, C.A.B.A">
+                    <label class="d-flex justify-content-center" for="email">Email</label>
+                    <input id="email" type="email" class="form-control" name="email" value="<?=$email ?? ''?>" placeholder="Email">
                   </div>
                   <div class="form-group col-md-12">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" name="email" value="<?= $_POST['email'] ?? '' ?>" id="inputEmail4" placeholder="Email">
+                    <label class="d-flex justify-content-center" for="password">Password</label>
+                    <input id="password" type="password" class="form-control" name="password" value="<?=$password ?? ''?>"placeholder="Password">
                   </div>
                   <div class="form-group col-md-12">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" name="password" value="<?=$_POST['password'] ?? ''?>"placeholder="Password">
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="inputPassword5">Confirmar Password</label>
-                    <input type="password" class="form-control" id="inputPassword5" name="confirmarPassword" value="<?=$_POST['confirmarPassword']?? ''?>" placeholder="Confirmar Password">
+                    <label class="d-flex justify-content-center" for="inputPassword5">Confirmar Password</label>
+                    <input id="inputPassword5" type="password" class="form-control" name="confirmarPassword" value="<?=$confirmarPassword ?? ''?>" placeholder="Confirmar Password">
                   </div>
                   <div class="form-group col-md-12 d-flex justify-content-center ">
                     <button type="submit" class="btn btn-primary">Registrate</button>

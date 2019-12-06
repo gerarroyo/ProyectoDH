@@ -8,3 +8,15 @@
   display: flex;
   justify-content: center;
 }
+::placeholder
+{
+  text-align: left;
+}
+.formu-grupo
+{
+  padding: 3%;
+}
+.form-group
+{
+  padding: 2%;
+}
