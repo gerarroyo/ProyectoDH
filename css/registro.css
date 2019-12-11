@@ -20,3 +20,15 @@
 {
   padding: 2%;
 }
+.file-upload-form
+{
+  margin-top: 5%;
+}
+.boton-enviar
+{
+  margin-top: 10%;
+}
+.small-alert-nombre
+{
+color: red;
+}

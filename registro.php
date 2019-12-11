@@ -1,15 +1,27 @@
 <?php
-if ($_POST){
-//VARIABLES DE LOS DATOS QUE LLENA EL USUARIO EN EL FORMULARIO (ESTAN LLAMADOS DENTRO DE LOS VALUES)//
-  $nombre = $_POST['nombre'];
-  $apellido = $_POST['apellido'];
-  $direccion = $_POST['direccion'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $confirmarPassword = $_POST['confirmarPassword'];
-  $errores = [];
+  if ($_POST){
+  //VARIABLES DE LOS DATOS QUE LLENA EL USUARIO EN EL FORMULARIO (ESTAN LLAMADOS DENTRO DE LOS VALUES)//
+    $nombre = trim($_POST['nombre']);
+    $apellido = trim($_POST['apellido']);
+    $direccion = trim($_POST['direccion']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $confirmarPassword = trim($_POST['confirmarPassword']);
+    $errores = [];
+    $nombre=str_replace(" ", "", $nombre);
+    if($nombre == '')
+    {
+      $errores['nombre'] = 'Completa el nombre';
+    } elseif (strlen($nombre) <=2)
+      {
+        $errores['nombre'] = 'Al menos 2 caracteres';
 
-}
+      } elseif (!ctype_alpha($nombre))
+          {
+            $errores['nombre'] = 'Solo puede contener caracteres: (a-z , " ")';
+          }
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,10 +51,12 @@ if ($_POST){
                   <div class="form-group col-md-12">
                     <label class="d-flex justify-content-center" for="nombre">Nombre</label>
                     <input id="nombre" type="text" class="form-control" name="nombre"  value="<?=$nombre ?? ''?>" placeholder="Escribe tu nombre">
+                    <p class="text-center text-danger"><?php echo $errores['nombre'] ?? ''?></p>
                   </div>
                   <div class="container-fluid form-group col-md-12">
                     <label class="d-flex justify-content-center" for="apellido">Apellido</label>
                     <input id="apellido" type="text" class="form-control" name="apellido" value="<?=$apellido ?? ''?>" placeholder="Ahora tu apellido">
+                    <p class="text-center text-danger"><?php echo $errores['apellido'] ?? ''?></p>
                   </div>
                   <div class="form-group col-md-12">
                     <label class="d-flex justify-content-center" for="direccion">Direccion</label>
@@ -60,7 +74,11 @@ if ($_POST){
                     <label class="d-flex justify-content-center" for="inputPassword5">Confirmar Password</label>
                     <input id="inputPassword5" type="password" class="form-control" name="confirmarPassword" value="<?=$confirmarPassword ?? ''?>" placeholder="Confirmar Password">
                   </div>
-                  <div class="form-group col-md-12 d-flex justify-content-center ">
+                  <div class="custom-file file-upload-form">
+                    <input id="avatar" type="file" class="custom-file-input" id="validatedCustomFile">
+                    <label class="custom-file-label d-flex justify-content-center" for="avatar">Sube tu Avatar...</label>
+                  </div>
+                  <div class="form-group col-md-12 d-flex justify-content-center boton-enviar">
                     <button type="submit" class="btn btn-primary">Registrate</button>
                   </div>
                 </div>
