@@ -8,18 +8,63 @@
     $password = trim($_POST['password']);
     $confirmarPassword = trim($_POST['confirmarPassword']);
     $errores = [];
-    $nombre=str_replace(" ", "", $nombre);
+    $nombre = str_replace(" ", "", $nombre);
+//validaciones
     if($nombre == '')
     {
       $errores['nombre'] = 'Completa el nombre';
-    } elseif (strlen($nombre) <=2)
+    }
+      elseif (strlen($nombre) <=2)
+        {
+          $errores['nombre'] = 'Al menos 2 caracteres';
+        }
+        elseif (!ctype_alpha($nombre))
+            {
+              $errores['nombre'] = 'Solo puede contener caracteres: (a-z , " ")';
+            }
+    if($apellido == '')
+    {
+      $errores['apellido'] = 'Completa el apellido';
+    }
+      elseif (strlen($apellido) <= 2)
+        {
+          $errores['apellido'] = 'Al menos 2 caracteres';
+        }
+    if($direccion == '')
+    {
+      $errores['direccion'] = 'Escribe tu direccion';
+    }
+      elseif (strlen($direccion) <= 8)
+        {
+          $errores['direccion'] = 'Escribe una dirección válida (al menos 8 caracteres)';
+        }
+    if($email == '')
+    {
+      $errores['email'] = 'Escribe tu E-mail';
+    }
+      elseif(!filter_var($email,FILTER_VALIDATE_EMAIL))
       {
-        $errores['nombre'] = 'Al menos 2 caracteres';
+        $errores['email'] = 'Ingresa un E-Mail válido';
+      }
+    if ($password == '')
+    {
+      $errores['password'] = 'La contraseña esta vacia';
+    }
 
-      } elseif (!ctype_alpha($nombre))
-          {
-            $errores['nombre'] = 'Solo puede contener caracteres: (a-z , " ")';
-          }
+      elseif (strlen($password) <= 6)
+      {
+        $errores['password'] = 'Minimo 6 caracteres';
+      }
+    if ($confirmarPassword == '')
+    {
+      $errores['confirmarPassword'] = 'Reescribe la contraseña';
+    }
+    elseif ($confirmarPassword != $password)
+    {
+      $errores['confirmarPassword'] = 'Las contraseñas no coinciden';
+    }
+
+
   }
 
 ?>
@@ -61,18 +106,22 @@
                   <div class="form-group col-md-12">
                     <label class="d-flex justify-content-center" for="direccion">Direccion</label>
                     <input type="text" class="form-control" id="direccion" name="direccion" value="<?= $direccion ?? ''?>" placeholder="Avenida Corrientes 3800, C.A.B.A">
+                    <p class="text-center text-danger"><?php echo $errores['direccion'] ?? ''?></p>
                   </div>
                   <div class="form-group col-md-12">
                     <label class="d-flex justify-content-center" for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" value="<?=$email ?? ''?>" placeholder="Email">
+                    <p class="text-center text-danger"><?php echo $errores['email'] ?? ''?></p>
                   </div>
                   <div class="form-group col-md-12">
                     <label class="d-flex justify-content-center" for="password">Password</label>
                     <input id="password" type="password" class="form-control" name="password" value="<?=$password ?? ''?>"placeholder="Password">
+                    <p class="text-center text-danger"><?php echo $errores['password'] ?? ''?></p>
                   </div>
                   <div class="form-group col-md-12">
                     <label class="d-flex justify-content-center" for="inputPassword5">Confirmar Password</label>
                     <input id="inputPassword5" type="password" class="form-control" name="confirmarPassword" value="<?=$confirmarPassword ?? ''?>" placeholder="Confirmar Password">
+                    <p class="text-center text-danger"><?php echo $errores['confirmarPassword'] ?? ''?></p>
                   </div>
                   <div class="custom-file file-upload-form">
                     <input id="avatar" type="file" class="custom-file-input" id="validatedCustomFile">
